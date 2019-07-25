@@ -12,7 +12,7 @@ No hay nada mejor en la vida que las cosas gratis y Google Cloud lo sabe, por lo
 
 Hablemos de plata, para entender cómo funciona el cobro de productos en GCP pongamos como ejemplo las Google Cloud Functions que igualmente profundizaremos más adelante, Este producto incluye 2 millones de ejecuciones gratis, sin embargo, esto se compone de __todas__ las Cloud Functions que puedas tener creadas dentro de todos tus proyectos asociados a una cuenta de Billing.
 
-~__OJO__~
+_*OJO*_
 
 Lo anterior quiere decir que si tienes 3 proyectos con 5 Cloud Functions cada uno, debes tratar que entre esas 15 funciones no se pasen de los 2 millones de ejecuciones, sí tu intención es que salga $0 a fin de mes. Ademas debes tener presente que esto aplica a todos los productos de GCP.
 
@@ -132,5 +132,8 @@ Como vemos los primeros 10 GB cada mes son gratuitos, esto es bastante, ahora bi
 Y cómo vemos en la tabla hay algunos conceptos asociados a ML (Machine Learning) que también tenemos gratis. ☺
 
 ### Cloud Run
+
 Pasemos ahora a la jugador más valioso, Cloud Run, este es uno de los nuevos servicios de computo de GCP y una más de las herramientas Serverless de la plataforma.
 Cloud Run nos permitirá
+
+
