@@ -1,7 +1,4 @@
-
-
-
-
+``` 
 SELECT TIMESTAMP_TRUNC(usage_start_time, day) as usage_date,
   sku.description,
   usage.unit,
@@ -13,3 +10,4 @@ WHERE
   AND (sku.description like "Internet data%"
       OR sku.description like "Inter-region data%")
 GROUP BY usage_date, sku.description, usage.unit;
+``` 
