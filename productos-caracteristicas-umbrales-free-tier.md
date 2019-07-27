@@ -99,8 +99,8 @@ gsutil mb -c regional -l us-central1 gs://<BUCKET_NAME>/
 
 En lo que respecta a las operaciones, son estas:
 
-__Clase A__: Añadir objetos y enumerar segmentos y objetos
-__Clase B__: Obtener objetos y visualizar metadatos de segmentos y objetos
+* __Clase A__: Añadir objetos y enumerar segmentos y objetos
+* __Clase B__: Obtener objetos y visualizar metadatos de segmentos y objetos
 
 Otro aspecto a considerar es el uso de la red, ya que si bien podemos almacenar 5GB, __sólo tendremos 1GB de salida__ desde USA gratis.
 
