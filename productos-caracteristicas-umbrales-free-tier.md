@@ -1,35 +1,34 @@
 # Entendiendo la capa gratuita de GCP
-## capitulo 1 - Productos y sus umbrales
+## Capítulo 1 - Productos, Características y Umbrales de la capa gratuita
 
-La adopción de Google Cloud Platform esta creciendo mucho y ya forma parte del stack con el que se están construyendo las soluciones de muchas empresas en Latinoamérica. Es por esto que muchos de nosotros estamos deseosos de implementar nuestros proyectos personales, pruebas de concepto e inclusos nuestros emprendimientos en la nube Google.
-Ahora bien, en la mayoría de los casos no contamos con el $presupuesto$ para dar el primer paso. Así que en este articulo te voy a contar cómo sacar el máximo provecho a la capa "Always Free" de GCP y por supuesto ver como [Cloud Run](https://cloud.google.com/run/) hace todo más fácil.
+La adopción de Google Cloud Platform está creciendo mucho y ya forma parte del stack con el que se están construyendo las soluciones de muchas empresas en Latinoamérica. Es por esto que muchos de nosotros estamos deseosos de implementar nuestros proyectos personales, pruebas de concepto e inclusos nuestros emprendimientos en la nube Google.
+Ahora bien, en la mayoría de los casos no contamos con el $presupuesto$ para dar el primer paso. Así que en este artículo te voy a contar cómo sacar el máximo provecho a la capa "Always Free" de GCP y por supuesto ver cómo [Cloud Run](https://cloud.google.com/run/) hace todo más fácil.
 
 ## Always Free
 
-No hay nada mejor en la vida que las cosas gratis y Google Cloud lo sabe, por lo tanto, en su búsqueda de nuevos adeptos tiene un excelente plan de iniciación, el cual incluye 300 USD por 12 meses y junto con esto una gran cantidad de productos de los cuales una determinada porción de su uso no tiene costo. Esta es la denominada capa __Always Free__, que en palabras de Google __"Puedes utilizar estos productos sin coste alguno hasta que alcances los límites de uso especificados, durante la prueba gratuita y cuando esta finalice. Estos límites no caducan, pero están sujetos a cambios"__, Primero entenderemos como se cobra cada servicio entre todos los proyectos y luego conozcamos algunos de los productos emblemáticos incluidos en esta capa gratuita, para finalmente ver un ejemplo de cómo tener una arquitectura completa que tiene una facturación mensual de cero, así es, leíste bien, una factura mensual de cero.
+No hay nada mejor en la vida que las cosas gratis y Google Cloud lo sabe, por lo tanto, en su búsqueda de nuevos adeptos tiene un excelente plan de iniciación, el cual incluye USD 300 por 12 meses y junto con esto una gran cantidad de productos de los cuales una determinada porción de su uso no tiene costo. Esta es la denominada capa __Always Free__, que en palabras de Google __"Puedes utilizar estos productos sin coste alguno hasta que alcances los límites de uso especificados, durante la prueba gratuita y cuando esta finalice. Estos límites no caducan, pero están sujetos a cambios"__. Primero, entenderemos cómo se cobra cada servicio entre todos los proyectos, y luego revisaremos algunos de los productos emblemáticos incluidos en esta capa gratuita, para finalmente ver un ejemplo de cómo tener una arquitectura completa que tiene una facturación mensual de cero (así es, leíste bien, una factura mensual de cero!).
 
 ## Costos
 
-Hablemos de plata, para entender cómo funciona el cobro de productos en GCP pongamos como ejemplo las Google Cloud Functions que igualmente profundizaremos más adelante, Este producto incluye 2 millones de ejecuciones gratis, sin embargo, esto se compone de __todas__ las Cloud Functions que puedas tener creadas dentro de todos tus proyectos asociados a una cuenta de Billing.
+Hablemos de plata: para entender cómo funciona el cobro de productos en GCP pongamos como ejemplo las [Google Cloud Functions](https://cloud.google.com/functions/) (que igualmente profundizaremos más adelante). Este producto incluye __2 millones de ejecuciones gratis__, sin embargo, esto se compone de __*todas*__ las Cloud Functions que puedas tener creadas dentro de __*todos*__ tus proyectos asociados a una cuenta de Billing.
 
 _*OJO*_
 
-Lo anterior quiere decir que si tienes 3 proyectos con 5 Cloud Functions cada uno, debes tratar que entre esas 15 funciones no se pasen de los 2 millones de ejecuciones, sí tu intención es que salga $0 a fin de mes. Ademas debes tener presente que esto aplica a todos los productos de GCP.
+Lo anterior quiere decir que si tienes __3 proyectos__ con __5 Cloud Functions__ cada uno, debes tratar que entre esas __*15 funciones*__ no se pasen de los __2 millones__ de ejecuciones, si tu intención es que salga $0 a fin de mes. Además, debes tener presente que esto aplica a todos los productos de GCP:
 
-> La capa gratuita considera el uso total del producto entre todos los proyectos.
+> La capa gratuita considera el uso total del producto __entre todos los proyectos__
 
-Ademas el cobro por el uso de cada producto se compone de múltiples factores, continuemos con el ejemplo de la Functions, este producto se cobra tanto por número de ejecuciones, por uso de la red de entrada y salida, el tamaño de la RAM y CPU asignadas, así como por el tiempo de CPU total utilizado en la ejecución de cada función, veamos un ejemplo.
+El cobro por el uso de cada producto se compone de múltiples factores. Continuemos con el ejemplo de las Cloud Functions: este producto se cobra tanto por *número de ejecuciones*, por *uso de la red de entrada y salida*, el *tamaño de la RAM* y *CPU* asignadas, así como por *el tiempo de CPU total utilizado* en la ejecución de cada función. Veamos un ejemplo:
 
 ![](/images/chapter-1/cloud_functions_ejemplo1.png)
 
-En la imagen anterior, podemos ver una Cloud Function que se ejecuta solo 1 millón de veces por mes, el tamaño del payload es regular 2.5 kb pero su tiempo de ejecución de 30 segundos por cada llamada, y como verás en la siguiente imagen el costo mensual se dispara a 66 USD.
+En la imagen anterior, podemos ver una Cloud Function que se ejecuta sólo *1 millón de veces por mes*, el tamaño del payload es regular (*2.5 kb*), pero su tiempo de ejecución es de *30 segundos* por cada llamada: como verás en la siguiente imagen, el costo mensual se dispara a __USD 66__.
 
 ![](/images/chapter-1/cloud_functions_ejemplo2.png)
 
+Este ejemplo nos recuerda lo cautelosos que debemos ser al utilizar cada servicio: conocer sus umbrales y en especial tener en cuenta __para qué fue creado cada producto__. Siguiendo nuestro ejemplo de Cloud Functions, si vamos a enfrentar más de 30 segundos de procesamiento por cada llamada, entonces claramente Cloud Functions __no es la herramienta idónea__ (para nuestro propósito de gastar lo menos posible). En este escenario, debemos considerar algún servicio que __no__ tenga una estructura de cobro por ejecución. Sólo como referencia de las posibilidades que hay, en [Google Compute Engine](https://cloud.google.com/compute/) USD 24,75 mensuales por 730 horas de ejecución continua de una instancia *n1-standard-1* ó USD 0 (sí, cero!) con una *f1-micro*.
 
-Esto nos hace pensar en lo cuidadosos que debemos ser al utilizar cada servicio, considerando sus umbrales y en especial tener en cuenta para que fue creado cada producto. En este caso si vamos a tener mas de 30 segundos de procesamiento por request, claramente Functions no es la herramienta idónea, tal vez debamos pensar en alguno que no tenga una estructura de cobro por ejecución, sino tal vez algo como Google Compute Engine que pagas 24,75 USD mensuales por 730 horas de ejecución continua de una instancia n1-standar-1 ó $0 con una f1-micro :) .
-
- Ya que tenemos claro cómo se factura el uso de los servicios en GCP vamos a dar un vistazo a los principales productos y los limites que comprenden su capa gratuita.
+Ahora que tenemos claro cómo se factura el uso de los servicios en GCP vamos a dar un vistazo a los principales productos y los límites que comprenden su capa gratuita.
 
 ## Productos y sus Límites
 
@@ -37,28 +36,31 @@ Ahora veamos algunos productos más detalladamente, sus características princip
 
 ### Cloud Functions
 
-Ya que lo utilizamos en el ejemplo anterior comenzaremos con Functions. Este es uno de mis componentes favoritos, por su simplicidad y versatilidad, para los que no lo conocen, Cloud Functions es uno de los productos serverless de GCP y nos permite ejecutar una función específica sin la necesidad de preocuparnos de lo demás, si quieres conocerla mejor puedes ver esta charla que dimos con [Iván Olivares Rojas](https://medium.com/u/62f5f65fb29b) en las oficinas de [Globant](https://medium.com/u/9a82c850e61f) chile, este es el [link de Youtube](https://www.youtube.com/watch?v=4IewxFRGUko).
+Ya que lo utilizamos en el ejemplo anterior, serán las primeras en nuestra revisión (este es uno de mis componentes favoritos, por su simplicidad y versatilidad). 
 
-Básicamente te olvidas de todo lo que ves en la siguiente imagen 
+Para los que no lo conocen, [Google Cloud Functions](https://cloud.google.com/functions/) es uno de los productos [serverless](https://cloud.google.com/serverless/) de GCP, y nos permite ejecutar una función específica sin la necesidad de preocuparnos de lo demás temas (como dónde se ejecuta la función, por ejemplo). Si quieres conocerla mejor [puedes ver esta charla](https://www.youtube.com/watch?v=4IewxFRGUko) que dimos con [Iván Olivares Rojas](https://medium.com/u/62f5f65fb29b) en las oficinas de [Globant](https://medium.com/u/9a82c850e61f) Chile.
+
+Básicamente, con Cloud Functions te olvidas de todo lo que ves en la siguiente imagen: 
 
 ![](/images/chapter-1/cloud_functions_explanation1.png)
 
-y te enfocas en solo el código desde tu función en adelante y google crea y administra todo el resto de componentes de la solución por ti.
+y pasas a un esquema donde te enfocas exclusivamente al código *desde tu función en adelante*; Google Cloud crea y administra todo el resto de componentes requeridos para la solución, por ti:
 
 ![](/images/chapter-1/cloud_functions_explanation2.png)
 
-Cloud Functions puede ser activado de múltiples formas, las más conocidas son HTTP, archivos en Cloud Storage y mensajes en un tópico de Pub/Sub, sin embargo tiene muchos más, te invito a verlos en [este link](https://cloud.google.com/functions/docs/calling/).
+Cloud Functions puede ser activado de múltiples formas, las más conocidas son *invocación por pedidos HTTP*, *eventos generados en Cloud Storage* y *mensajes gatillados en un tópico de Pub/Sub*, sin embargo tiene muchos más: te invito a verlos en [este link](https://cloud.google.com/functions/docs/calling/).
 
-En lo que respecta a los umbrales de la capa gratuita encontramos los siguientes.
+En lo que respecta a la capa gratuita encontramos los siguientes umbrales:
 
 ![](/images/chapter-1/cloud_functions_free_tier_limits.png)
 
-Esto significa que de forma combinada entre todas las Cloud Functions de tus proyectos dispones de estos limites de forma completamente gratis. Para que la facturación sea $0 debes tener en cuenta los siguientes  valores promedio de tus Cloud Functions.
+Esto significa que, de forma combinada, entre __*todas*__ las Cloud Functions de __*todos*__ tus proyectos, __si no sobrepasas esos límites, no pagarás por tener cargas de trabajo desplegadas en Cloud Functions__. 
+
+Recuerda, tal como vimos en el ejemplo introductorio, para que la facturación sea $0 debes tener en cuenta los siguientes valores promedio de tus Cloud Functions:
 
 ![For Free](/images/chapter-1/cloud_functions_free_tier_limits_calc.png)
 
-Puedes tener muchas funciones configuradas en todos tus proyectos y su uso se suma entre todas estas así que crea la cantidad que quieras.
-
+No hay restricciones respecto a la cantidad de Cloud Functions: puedes tener las que quieras repartidas en todos tus proyectos. Lo importante es que consideres que para el umbral gratuito, se considera la suma entre todas las que existan bajo tu cuenta.
 
 ### Cloud Pub/Sub
 
