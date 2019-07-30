@@ -1,4 +1,4 @@
- var apiKey = 'AIzaSyDS5IIUpsxEdmdLeg5WTlYx9i4wGofKDS8';
+ var apiKey = '';
  var currentPlayer = {};
  var currentResults = [];
  var currentOptionPressed = {};
