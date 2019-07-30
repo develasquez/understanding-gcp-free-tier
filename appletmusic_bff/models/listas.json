@@ -1,0 +1,9 @@
+//Model Name listas.json
+
+{
+	"user":"ref",
+	"nombreLista":"text",
+	"traks":"int",
+	"items":"text"
+}
+//sql_query: CREATE TABLE IF NOT EXISTS listas ( _id  INT NOT NULL , ,,,

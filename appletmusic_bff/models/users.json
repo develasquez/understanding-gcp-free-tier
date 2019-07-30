@@ -1,0 +1,8 @@
+//Model Name users.json
+
+{
+	"name":"text",
+	"email":"text",
+	"password":"text"
+}
+//sql_query: CREATE TABLE IF NOT EXISTS users ( _id  INT NOT NULL , ,,

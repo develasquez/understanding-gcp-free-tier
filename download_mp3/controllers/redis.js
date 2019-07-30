@@ -1,7 +1,8 @@
 const redis = require('redis');
 const REDISHOST = process.env.REDISHOST || '34.66.216.52';
 const REDISPORT = process.env.REDISPORT || 6379;
-const client = redis.createClient(REDISPORT, REDISHOST, {password: process.env.REDISCREDENTIALS});
+console.log(process.env.REDISCREDENTIALS);
+const client = redis.createClient(REDISPORT, REDISHOST, {password: process.env.REDISCREDENTIALS || 'Devenew1.,A'});
 
 //const {promisify} = require('util');
 //const getAsync = promisify(client.get).bind(client);
