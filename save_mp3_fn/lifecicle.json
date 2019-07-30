@@ -1,0 +1,6 @@
+{
+    "action": "delete",
+    "condition": {
+        "age": 1
+    }
+}
