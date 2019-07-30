@@ -8,9 +8,9 @@
   "dependencies": {
     "body-parser": "~1.15.1",
     "cookie-parser": "~1.4.3",
-    "debug": "~2.2.0",
+    "debug": "^4.1.1",
     "express": "~4.13.4",
     "mongoose": "^5.5.11",
-    "morgan": "~1.7.0"
+    "morgan": "^1.9.1"
   }
 }
