@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "deploy-http": "gcloud beta functions deploy saveMp3 --entry-point=saveMp3 --memory=128MB --stage-bucket=buscarsalud-cloud_cloudbuild --trigger-topic=cache-mp3-file --runtime nodejs10"
+    "deploy-http": "gcloud beta functions deploy saveMp3 --entry-point=saveMp3 --memory=128MB --stage-bucket=xxxxxx-cloud_cloudbuild --trigger-topic=cache-mp3-file --runtime nodejs10"
   },
   "author": "",
   "license": "ISC",

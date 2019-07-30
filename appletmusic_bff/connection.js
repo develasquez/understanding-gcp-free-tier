@@ -1,5 +1,5 @@
 var mongoose  = require('mongoose');
-mongoose.connect('mongodb+srv://cotizacion:U03EAIv36IDmwEl9@mongodb-cgzlj.gcp.mongodb.net/appletmusic?retryWrites=true');
+mongoose.connect(process.env.MONGODBSERVER);
 collections = {};
 module.exports = {
     ObjetId:function(string){

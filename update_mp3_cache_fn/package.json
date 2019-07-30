@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "deploy-storage": "gcloud beta functions deploy updateMp3Cache --entry-point=updateMp3Cache --memory=128MB --stage-bucket=buscarsalud-cloud_cloudbuild --trigger-resource mp3_desamovil --trigger-event google.storage.object.finalize --runtime nodejs10 --env-vars-file .env.yaml"
+    "deploy-storage": "gcloud beta functions deploy updateMp3Cache --entry-point=updateMp3Cache --memory=128MB --stage-bucket=xxxxx-cloud_cloudbuild --trigger-resource mp3_bucket --trigger-event google.storage.object.finalize --runtime nodejs10 --env-vars-file .env.yaml"
   },
   "author": "",
   "license": "ISC",

@@ -7,9 +7,9 @@ exports.saveMp3 = (event, callback) => {
     ? Buffer.from(event.data, 'base64').toString()
     : '{}';
   console.log(data);
-  const CLOUD_BUCKET = "mp3_desamovil";
+  const CLOUD_BUCKET = process.env.BUCKET;
   const storage = new Storage({
-    projectId: 'buscarsalud-cloud'
+    projectId: process.env.PROJECT
   });
 
   const bucket = storage.bucket(CLOUD_BUCKET);

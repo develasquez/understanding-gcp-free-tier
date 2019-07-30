@@ -1,6 +1,6 @@
 const redis = require('redis');
-const REDISHOST = process.env.REDISHOST || '34.66.216.52';
-const REDISPORT = process.env.REDISPORT || 6379;
+const REDISHOST = process.env.REDISHOST;
+const REDISPORT = process.env.REDISPORT;
 console.log(process.env.REDISCREDENTIALS);
 const client = redis.createClient(REDISPORT, REDISHOST, {password: process.env.REDISCREDENTIALS || 'Devenew1.,A'});
 
