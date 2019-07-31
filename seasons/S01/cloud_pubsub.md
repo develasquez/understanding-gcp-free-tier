@@ -55,7 +55,7 @@ Puntualmente en la documentación se indica esto:
 >* La inversa también es cierta. El uso de la cuota del suscriptor puede ser mayor que el uso de la cuota del publicador si __publica varios mensajes en una sola solicitud de publicación__ o __recibe los mensajes en respuestas separadas__.
 
 
-###Todo se debe medir
+### Todo se debe medir
 
 Recuerda que siempre puedes monitorear el uso de recursos.
 
