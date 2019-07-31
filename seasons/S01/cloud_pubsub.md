@@ -26,8 +26,8 @@ Mientras no se muevan más de 10 GB, o no crees más de 10.000 tópicos, no debe
 
 Si vamos a la documentación _en inglés_ (cosa que recomendamos ampliamente, las traducciones no siempre están al día!):
 
-[//]: # Each measured request or response counts as the greater of 1 kB or the total size of the request or response.
-[//]: # The quota usage for each request or response is rounded up to the nearest 1 kB increment. Consider a publish request with 100 messages of 50 bytes each and a topic name length equal to 30 bytes. The request's quota usage would be max(1, ceil(5030/1000)) = 6kB.
+<!--- Each measured request or response counts as the greater of 1 kB or the total size of the request or response.
+The quota usage for each request or response is rounded up to the nearest 1 kB increment. Consider a publish request with 100 messages of 50 bytes each and a topic name length equal to 30 bytes. The request's quota usage would be max(1, ceil(5030/1000)) = 6kB.--->
 
 > Cada solicitud o respuesta medida cuenta como el mayor de __1 kB__ o el __tamaño total__ de la solicitud o respuesta.
 
@@ -35,6 +35,16 @@ Si vamos a la documentación _en inglés_ (cosa que recomendamos ampliamente, la
  
 
 Puntualmente en la documentación se indica esto:
+
+<!---
+	Quota mismatches can happen when published or received messages are smaller than 1000 bytes. For example:
+
+	If you publish 10 500-byte messages in separate requests, your publisher quota usage will be 10,000 bytes. This is because messages that are smaller than 1000 bytes are automatically rounded up to the next 1000-byte increment.
+
+	If you receive those 10 messages in a single pull response, your subscriber quota usage might be only 5 kB, since the actual size of each message is combined to determine the overall quota.
+
+	The inverse is also true. The subscriber quota usage might be greater than the publisher quota usage if you publish multiple messages in a single publish request or receive the messages in separate Pull requests.
+--->
 
 > Pueden producirse desajustes de cuota cuando los mensajes publicados o recibidos son menores de 1000 bytes. Por ejemplo:
 
