@@ -1,6 +1,6 @@
 # Cloud Functions
 
-Ya que lo utilizamos en el [ejemplo introductorio]((/seasons/S00/README.md)), serán las primeras en nuestra revisión (este es uno de mis componentes favoritos, por su simplicidad y versatilidad).
+Ya que lo utilizamos en el [ejemplo introductorio](/seasons/S00/README.md), serán las primeras en nuestra revisión (este es uno de mis componentes favoritos, por su simplicidad y versatilidad).
 
 ## Características principales
 
