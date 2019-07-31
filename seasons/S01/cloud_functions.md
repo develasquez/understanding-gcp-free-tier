@@ -8,11 +8,11 @@ Para los que no lo conocen, [Google Cloud Functions](https://cloud.google.com/fu
 
 Básicamente, con Cloud Functions te olvidas de todo lo que ves en la siguiente imagen: 
 
-![](/images/chapter-1/cloud_functions/cloud_functions_explanation1.png)
+![](/images/S01/cloud_functions/cloud_functions_explanation1.png)
 
 y pasas a un esquema donde te enfocas exclusivamente al código *desde tu función en adelante*; Google Cloud crea y administra todo el resto de componentes requeridos para la solución, por ti:
 
-![](/images/chapter-1/cloud_functions/cloud_functions_explanation2.png)
+![](/images/S01/cloud_functions/cloud_functions_explanation2.png)
 
 Cloud Functions puede ser activado de múltiples formas, las más conocidas son *invocación por pedidos HTTP*, *eventos generados en Cloud Storage* y *mensajes gatillados en un tópico de Pub/Sub*, sin embargo tiene muchos más: te invito a verlos en [este link](https://cloud.google.com/functions/docs/calling/).
 
@@ -20,7 +20,7 @@ Cloud Functions puede ser activado de múltiples formas, las más conocidas son 
 
 En lo que respecta a la capa gratuita encontramos los siguientes umbrales:
 
-![](/images/chapter-1/cloud_functions/cloud_functions_free_tier_limits.png)
+![](/images/S01/cloud_functions/cloud_functions_free_tier_limits.png)
 
 Esto significa que, de forma combinada, entre __*todas*__ las Cloud Functions de __*todos*__ tus proyectos, __si no sobrepasas esos límites, no pagarás por tener cargas de trabajo desplegadas en Cloud Functions__.
 
@@ -28,6 +28,6 @@ Esto significa que, de forma combinada, entre __*todas*__ las Cloud Functions de
 
 Recuerda, tal como vimos en el ejemplo introductorio, para que la facturación sea $0 debes tener en cuenta los siguientes valores promedio de tus Cloud Functions:
 
-![For Free](/images/chapter-1/cloud_functions/cloud_functions_free_tier_limits_calc.png)
+![For Free](/images/S01/cloud_functions/cloud_functions_free_tier_limits_calc.png)
 
 No hay restricciones respecto a la cantidad de Cloud Functions: puedes tener las que quieras repartidas en todos tus proyectos. Lo importante es que consideres que para el umbral gratuito, se considera la suma entre todas las que existan bajo tu cuenta.

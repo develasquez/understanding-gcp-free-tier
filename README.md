@@ -2,7 +2,7 @@
 
 Esta serie está compuesta de tres _temporadas_ que te guiarán tanto en la teoría, como en la práctica y la gestión. Esperamos que les puedas sacar mucho provecho.
 
-* [Introducción - Qué es y cómo funciona la capa gratuita](/seasons/intro.md)
+* [Introducción - Qué es y cómo funciona la capa gratuita](/seasons/S00)
 * [S01 - Productos, Características y cómo ahorrar en la facturación](/seasons/S01/index.md)
     + [Cloud Functions](/seasons/S01/cloud_functions.md)
     + [Cloud Pub/Sub](/seasons/S01/cloud_pubsub.md)

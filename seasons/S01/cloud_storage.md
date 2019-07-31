@@ -4,13 +4,13 @@ Otro servicio fundamental en toda infraestructura es el de Almacenamiento de arc
 
 En la imagen a continuación tienes algunos de los posibles usos de GCS en tus arquitecturas y la posibilidad de integración con otros servicios de Google Cloud Platform
 
-![Caso de uso Cloud Storage](/images/chapter-1/cloud_storage_diagram.png)
+![Caso de uso Cloud Storage](/images/S01/cloud_storage/cloud_storage_diagram.png)
 
 Hay múltiples formas de ahorrar en el uso de Cloud Storage, entre las principales están, el tener claro la cantidad de GB que serán almacenados cada mes, el nivel de replicación que los archivo tendrán, la cantidad de veces que serán accedidos y el tiempo que duren los archivos almacenados.
 
 Veamos los costos del servicios, cuales son los límites y qué operaciones incluye la capa gratuita.
 
-![](/images/chapter-1/cloud_storage_limits.png)
+![](/images/S01/cloud_storage/cloud_storage_limits.png)
 
 
 Por lo tanto, tenemos __5GB en Storage Regional__, lo que es un _warning_ importante ya que los storages se crean automáticamente cómo Múlti Regional, así que cuando crees un Bucket debes usar el siguiente comando para que su uso se considere en la capa gratuita al crearlo solo como Regional.

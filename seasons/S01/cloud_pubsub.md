@@ -6,7 +6,7 @@ Pub/Sub al ser full administrado por Google escala según la necesidad de forma 
 
 Puedes conectarlo de forma nativa a múltiples productos de GCP entre los más significativos para nuestros escasos recursos son Cloud Functions y las alertas de Billing.
 
-![Pub/Sub](/images/chapter-1/cloud_pub_sub_image1.png)
+![Pub/Sub](/images/S01/cloud_pubsub/cloud_pubsub_image1.png)
 
 Sin lugar a dudas querrás tener tópicos de Pub/Sub  en tu infraestructura pero debes tener presente cuales son los umbrales considerados dentro de la capa gratuita y cuanto pagarás si te pasas.
 
