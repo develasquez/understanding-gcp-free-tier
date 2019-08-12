@@ -1,6 +1,6 @@
-# Entendiendo la capa gratuita de GCP (o cómo sacar el máximo provecho a Google Cloud *sin pagar de más*)
+# Entendiendo la capa gratuita de GCP
 
-Esta serie está compuesta de tres _temporadas_ que te guiarán tanto en la teoría, como en la práctica y la gestión. Esperamos que les puedas sacar mucho provecho.
+## Serie de artículos que te ayudará a sacar el máximo provecho a Google Cloud *sin pagar de más*
 
 * [Introducción - Qué es y cómo funciona la capa gratuita](/seasons/S00)
 * [S01 - Productos, Características y cómo ahorrar en la facturación](/seasons/S01/index.md)
