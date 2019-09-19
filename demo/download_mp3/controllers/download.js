@@ -33,11 +33,12 @@ async function getUrlAsync(url) {
     });
     await page.screenshot({path: 'buddy-screenshot'+ new Date().getTime() +'.png'});
     console.log("Submit");
-    wait(10000);
+    
+    
     await page.waitForSelector("#progress[style='display: none;']");
     await page.screenshot({path: 'buddy-screenshot'+ new Date().getTime() +'.png'});
     console.log("hide Progress");
-    await page.waitForSelector("#buttons[style='display: block;']");
+    await page.waitForSelector("#title:not(:contains('Please insert a valid video URL'))");
     await page.screenshot({path: 'buddy-screenshot'+ new Date().getTime() +'.png'});
     console.log("Find Download");
     var downloadUrl = await page.$eval("#buttons > a:nth-child(1)", el => el.href);
