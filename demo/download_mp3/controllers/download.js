@@ -15,20 +15,27 @@ async function getUrlAsync(url) {
     page = await browser.newPage();
     page.setCacheEnabled(true);
     await page.goto('https://ytmp3.cc/');
+    await page.screenshot({path: 'buddy-screenshot'+ new Date().getTime() +'.png'});
     let input = await page.$("#input");
     await input.click({
       delay: 1
     });
+    await page.screenshot({path: 'buddy-screenshot'+ new Date().getTime() +'.png'});
     await input.type(url, {
       delay: 1
     });
+    await page.screenshot({path: 'buddy-screenshot'+ new Date().getTime() +'.png'});
     await page.click("#submit", {
       delay: 1000
     });
+    await page.screenshot({path: 'buddy-screenshot'+ new Date().getTime() +'.png'});
     //wait(3000);
     await page.waitForSelector("#progress[style='display: none;']");
+    await page.screenshot({path: 'buddy-screenshot'+ new Date().getTime() +'.png'});
     await page.waitForSelector("#buttons[style='display: block;']");
+    await page.screenshot({path: 'buddy-screenshot'+ new Date().getTime() +'.png'});
     var downloadUrl = await page.$eval("#buttons > a:nth-child(1)", el => el.href);
+    await page.screenshot({path: 'buddy-screenshot'+ new Date().getTime() +'.png'});
     await page.close();
     //await browser.close();
   } catch (ex) {
