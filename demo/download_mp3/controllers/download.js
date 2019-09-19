@@ -30,11 +30,12 @@ async function getUrlAsync(url) {
     await page.waitForSelector("#buttons[style='display: block;']");
     var downloadUrl = await page.$eval("#buttons > a:nth-child(1)", el => el.href);
     await page.close();
-    await browser.close();
+    //await browser.close();
   } catch (ex) {
+    console.log(ex);
     downloadUrl = ex;
     await page.close();
-    await browser.close();
+    //await browser.close();
   }
   return downloadUrl;
 };
