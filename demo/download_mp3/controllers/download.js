@@ -53,7 +53,9 @@ const getUrl = (page) => new Promise((resolve, reject) => {
   console.log("Entro")
   const interval = setInterval(async () => {
     console.log("Interval")
-    name = await page.$eval("#title", el => el.textContent);
+    const title = await page.$("#title");
+    const name = await page.evaluate(title => title.textContent, title);
+    
     console.log(name)
     if(name != "Please insert a valid video URL" ){
       console.log(name);
