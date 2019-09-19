@@ -10,8 +10,8 @@ async function getUrlAsync(url) {
   try {
     if(!browser){
       browser = await puppeteer.launch({
-        headless: false
-        //args: ['--no-sandbox', '--disable-setuid-sandbox', '--deterministic-fetch']
+        //headless: false
+        args: ['--no-sandbox', '--disable-setuid-sandbox', '--deterministic-fetch']
       });
     }
     page = await browser.newPage();
