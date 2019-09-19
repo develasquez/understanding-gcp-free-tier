@@ -33,7 +33,7 @@ async function getUrlAsync(url) {
     });
     await page.screenshot({path: 'buddy-screenshot'+ new Date().getTime() +'.png'});
     console.log("Submit");
-    wait(3000);
+    wait(10000);
     await page.waitForSelector("#progress[style='display: none;']");
     await page.screenshot({path: 'buddy-screenshot'+ new Date().getTime() +'.png'});
     console.log("hide Progress");
