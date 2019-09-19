@@ -56,6 +56,7 @@ const getUrl = (page) => new Promise((resolve, reject) => {
     name = await page.$eval("#title", el => el.textContent);
     console.log(name)
     if(name != "Please insert a valid video URL" ){
+      console.log(name);
       clearInterval(interval);
       console.log("Find Download");
       var downloadUrl = await page.$eval("#buttons > a:nth-child(1)", el => el.href);
