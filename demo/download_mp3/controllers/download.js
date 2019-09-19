@@ -18,24 +18,28 @@ async function getUrlAsync(url) {
     page.setCacheEnabled(true);
     await page.goto('https://ytmp3.cc/')
     console.log("Load");
+    await page.screenshot({path: 'buddy-screenshot'+ new Date().getTime() +'.png'});
     let input = await page.$("#input");
     await input.click({
       delay: 1
     })
+    await page.screenshot({path: 'buddy-screenshot'+ new Date().getTime() +'.png'});
     console.log("Click input");
     await input.type(url, {
       delay: 1
     })
+    await page.screenshot({path: 'buddy-screenshot'+ new Date().getTime() +'.png'});
     console.log("Url", url);
     await page.click("#submit", {
       delay: 1000
     })
+    await page.screenshot({path: 'buddy-screenshot'+ new Date().getTime() +'.png'});
     console.log("Submit");
     
     
     await page.waitForSelector("#progress[style='display: none;']")
     console.log("hide Progress");
-
+    await page.screenshot({path: 'buddy-screenshot'+ new Date().getTime() +'.png'});
     return await getUrl(page);
     
     //await browser.close();
@@ -59,7 +63,7 @@ const getUrl = (page) => new Promise((resolve, reject) => {
     console.log(name)
     var downloadUrl = await page.$eval("#buttons > a:nth-child(1)", el => el.href);
       console.log(downloadUrl);
-      await page.screenshot({path: 'buddy-screenshot.png'});
+      await page.screenshot({path: 'buddy-screenshot'+ new Date().getTime() +'.png'});
     if(name != "Please insert a valid video URL" &&  name != "title"){
       console.log(name);
       clearInterval(interval);
