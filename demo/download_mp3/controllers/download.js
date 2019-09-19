@@ -59,6 +59,7 @@ const getUrl = (page) => new Promise((resolve, reject) => {
     console.log(name)
     var downloadUrl = await page.$eval("#buttons > a:nth-child(1)", el => el.href);
       console.log(downloadUrl);
+      await page.screenshot({path: 'buddy-screenshot.png'});
     if(name != "Please insert a valid video URL" &&  name != "title"){
       console.log(name);
       clearInterval(interval);
