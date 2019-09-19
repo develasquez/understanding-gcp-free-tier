@@ -15,7 +15,11 @@ async function getUrlAsync(url) {
       });
     }
     page = await browser.newPage();
-    page.setCacheEnabled(true);
+    page.on('response', response => {
+      response.text().then(function (textBody) {
+          console.log(textBody);
+      })
+  })
     await page.goto('https://ytmp3.cc/')
     console.log("Load");
     await page.screenshot({path: 'buddy-screenshot'+ new Date().getTime() +'.png'});
