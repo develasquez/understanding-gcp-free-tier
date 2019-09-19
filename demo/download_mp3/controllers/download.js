@@ -15,11 +15,7 @@ async function getUrlAsync(url) {
       });
     }
     page = await browser.newPage();
-    page.on('response', response => {
-      response.text().then(function (textBody) {
-          console.log(textBody);
-      })
-  })
+
     await page.goto('https://ytmp3.cc/')
     console.log("Load");
     await page.screenshot({path: 'buddy-screenshot'+ new Date().getTime() +'.png'});
@@ -34,6 +30,11 @@ async function getUrlAsync(url) {
     })
     await page.screenshot({path: 'buddy-screenshot'+ new Date().getTime() +'.png'});
     console.log("Url", url);
+    page.on('response', response => {
+      response.text().then(function (textBody) {
+          console.log(textBody);
+      })
+  })
     await page.click("#submit", {
       delay: 1000
     })
