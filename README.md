@@ -18,5 +18,5 @@
     + Implementacions de Front, Back y Jobs en Cloud Run
     + Implementacion de eventos Pus/Sub + Functions + Storage
 * [S03 - Haciendo forensics del Billing en DataStudio]
-    + Análisis del dataset de Billing Export (en BigQuery!)
+    + [Análisis del dataset de Billing Export (en BigQuery!)](/seasons/S03/export_data.md)
     + Dashboard en Data Studio (... para una facturación sin sorpresas!)
