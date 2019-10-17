@@ -30,4 +30,4 @@ Recuerda, tal como vimos en el ejemplo introductorio, para que la facturación s
 
 ![For Free](/images/S01/cloud_functions/cloud_functions_free_tier_limits_calc.png)
 
-No hay restricciones respecto a la cantidad de Cloud Functions: puedes tener las que quieras repartidas en todos tus proyectos. Lo importante es que consideres que para el umbral gratuito, se considera la suma entre todas las que existan bajo tu cuenta.
+No hay restricciones respecto a la cantidad de Cloud Functions: puedes tener las que quieras repartidas en todos tus proyectos. Lo importante es que consideres que para el umbral gratuito, se considera la suma entre todas las functions que existan bajo tu cuenta de billing.
