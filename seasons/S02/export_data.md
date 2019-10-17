@@ -2,7 +2,7 @@
 
 Como ya hemos visto en los [articulos anteriores](/seasons/S00/README.md) podemos sacar mucho provecho a la capa gratuita de Google Clouda Platform, pero hacerlo a ciegas es muy peligros y no nos da espacio para la optimizacion. Por eso en este articulo veremos como sacar más provecho a la __exportación de Billing hacia Big Query__, construir una schedule query para procesar esos datos y finalmente clonar un Dashboard  de Data Studio para la visualizacion del uso de la capa gratuita.
 
-## Administracion del Billing
+## Administración del Billing
 
 Como ya sabras los costos son unos de los pilares de la nube, y en el caso de Google Cloud tenemos control absoluto de estos, para ello tenemos a nuestra disposición la exportación de Billing hacia [Bigquery](/seasons/S01/bigquery.md), esto incluye todos y cada uno de los gastos que se realizan dentro de la platafora asociados a un mismo Billing ID. 
 
@@ -29,7 +29,7 @@ group by billing_account_id,
 ```
 El resultado de la query luce como este
 
-![Resultado Query Billing 1](/images/S03/resultado_query_billing_1.png)
+![Resultado Query Billing 1](/images/S02/resultado_query_billing_1.png)
 
 
 ## Habilitando la exportación de Billing
@@ -51,7 +51,7 @@ A continuación en tu consola web debes realizar los sieguientes pasos:
 
 La siguiente imágen lo aclara todo...
 
-![Habilitar Exportación](/images/S03/export.png)
+![Habilitar Exportación](/images/S02/export.png)
 
 
 Listo, ya esta configurado, a partir de ahora cada accion dentro de la plataforma será registrada en la base de datos y podremos saber con certeza cuanto se esta gastando en cada uno de los productos que tenemos corriendo en todos nuestros proyectos.
@@ -103,7 +103,7 @@ GROUP BY
 A partir de esta consulta crearemos el schedule diario, para ello, dale click al boton "Schedule Query" y luego a "Create Schedule Query" luego ingresa los valores que se muestran en la siguente imagen
 
 
-![Configurar Schedule Query](/images/S03/configure_schedule_query.png)
+![Configurar Schedule Query](/images/S02/configure_schedule_query.png)
 
 ## Manos a la obra con Data Studio
 
