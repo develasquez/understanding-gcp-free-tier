@@ -13,10 +13,6 @@
     + [Sendgrid](/seasons/S01/sendgrid.md)
     + [MongoDB Atlas](/seasons/S01/mongodb_atlas.md)
     + [Otros Productos y Servicios](/seasons/S01/others.md)
-* [S02 - Una arquitectura completamente gratis - Hands On]
-    + Caso de uso, componetes y arquitectura
-    + Implementacions de Front, Back y Jobs en Cloud Run
-    + Implementacion de eventos Pus/Sub + Functions + Storage
-* [S03 - Haciendo forensics del Billing en DataStudio]
+* S02 - Haciendo forensics del Billing en DataStudio
     + [Análisis del dataset de Billing Export (en BigQuery!)](/seasons/S03/export_data.md)
-    + Dashboard en Data Studio (... para una facturación sin sorpresas!)
+    + [Dashboard en Data Studio (... para una facturación sin sorpresas!)](/seasons/S03/export_data.md)
