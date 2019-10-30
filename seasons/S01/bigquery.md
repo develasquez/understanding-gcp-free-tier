@@ -1,6 +1,6 @@
 # Bigquery
 
-Otra de las Joyas de la corona de Google Cloud es Bigquery, esta es una de las bases de datos que más cariño le ha puesto Google y el hacerlo le ha ganado una gran aceptación por parte de los usuarios, llevandola a estar en la cima del **Cuadro de Gartner** como la mejor Base de Datos de Analytica y Businness Inteligent.
+Otra de las Joyas de la corona de Google Cloud es Bigquery, esta es una de las bases de datos que más cariño le ha puesto Google y el hacerlo le ha ganado una gran aceptación por parte de los usuarios, llevandola a estar entre los lideres del **[Cuadro de Gartner](https://cloud.google.com/gartner-magic-quadrant-for-dmsa/)** como la mejor Base de Datos de Analytica y Businness Inteligent.
 
 Esta Base de Datos es el __estado del arte__ para Google en lo que respecta a procesamiento distribuido de Millones de datos o PB de datos en solo segundos. Logrado gracias a que procesa los datos de forma distribuida, por medio de miles de workers que realizan el análisis de pedacitos de tus datos, hasta lograr finalmente el resultado de tus queries sobre grandes volumenes de datos en un instante.
 
