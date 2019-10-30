@@ -64,7 +64,7 @@ Son muchas las consideraciones que podemos tener para optimizar el costo de Bigq
 * Al insertar una columna se considera un tamaño mínimo de __1 KB__ insertado, ojo con la suma.
 * Los datos insertados desde __Google Cloud Storage__ no se cobran.
 * Copiar los datos a otra tabla no tiene coston ni de lectura ni de inserción, pero si se cobra el almacenamiento de los nuevos datos. 
-* Lo anterior puede ser muy util en Bigquery Sandbox y su limitación de 60 días y si lo combinas con [Schedule Queries](TODO) es un golazo ☺.
+* Lo anterior puede ser muy util en Bigquery Sandbox y su limitación de 60 días y si lo combinas con [Schedule Queries](https://cloud.google.com/bigquery/docs/scheduling-queries) es un golazo ☺.
 * Exportar datos no tiene costo.
 * Se cobra por todos los datos procesados a pesar de usar __LIMIT__.
 
@@ -87,24 +87,26 @@ Acompañame a ver algunas herramientas y buenas prácticas que nos ayudarán a o
 | _Ojo, estos tips sirven mucho incluso si usas Bigquery mas alla de la capa gratuita_.
 
 
-* __[Plan de Ejecución](TODO)__: Es un análisis realizado por Bigquery sobre la conulta que se va a relizar, este muestra un reporte indicando mutiples aspectos tales como,uso de computo, uso de memoria, y recursos de I/O. Utilizar esta herramienta para comprender que operaciones son mas costosas dentro de nuestras consultas nos puede ayudar a encontrar puntos de mejora que redunden en ahorro de dinero.
-Esta herrameinta es todo un mundo en si misma, te dejo el [link a la documentacion](TODO) y disfrutala.
+* __[Plan de Ejecución](https://cloud.google.com/bigquery/query-plan-explanation)__: Es un análisis realizado por Bigquery sobre la conulta que se va a relizar, este muestra un reporte indicando mutiples aspectos tales como,uso de computo, uso de memoria, y recursos de I/O. Utilizar esta herramienta para comprender que operaciones son mas costosas dentro de nuestras consultas nos puede ayudar a encontrar puntos de mejora que redunden en ahorro de dinero.
+Esta herrameinta es todo un mundo en si misma, te dejo el [link a la documentacion](https://cloud.google.com/bigquery/query-plan-explanation) y disfrutala.
 
-* __[Funciones de Agregación Aproximadas](TODO)__: Es una serie de funciones pensada en analítica de grandes volumenes de datos y destinada a consultas que no requieren un resultado tan fino. Esto quiere decir que funciones como __COUNT_DISTINC__ y __APPROX_COUNT_DISTINCT__ cumplen la misma labor pero el resultado es menos certero en el caso del comando de tipo APPROX. Sin embargo estos tipos de funciones consumen mucho menos recursos por ende son mas económicas que sus homologas mas detallistas.
-Estas son las que se encuentran disponibles y [aquí esta la docuentación](TODO).
+* __[Funciones de Agregación Aproximadas](https://cloud.google.com/bigquery/docs/reference/standard-sql/approximate_aggregate_functions)__: Es una serie de funciones pensada en analítica de grandes volumenes de datos y destinada a consultas que no requieren un resultado tan fino. Esto quiere decir que funciones como __COUNT_DISTINC__ y __APPROX_COUNT_DISTINCT__ cumplen la misma labor pero el resultado es menos certero en el caso del comando de tipo APPROX. Sin embargo estos tipos de funciones consumen mucho menos recursos por ende son mas económicas que sus homologas mas detallistas.
+Estas son las que se encuentran disponibles y [aquí esta la docuentación](https://cloud.google.com/bigquery/docs/reference/standard-sql/approximate_aggregate_functions).
     + APPROX_COUNT_DISTINCT
     + APPROX_QUANTILES
     + APPROX_TOP_COUNT
     + APPROX_TOP_SUM
 
-* __[Partición de Tablas](TODO)__: Al crear una tabla en Bigquery es posible establecer un punto de partición para dicha tabla (Pseudo columna), de esta forma se crea una especie de paginación basada en una columna de tipo fecha. Esto quiere decir que tendremos multiples pedasos de la misma tabla agrupada ya sea por la misma fecha o por la misma hora, esto permite optimizar mucho la performance y los costos ya que si incluimos este campo en el WHERE se estará consultando sobre un conjunto acotado de datos y no sobre la totalida. 
-Estas son los Pseudo Columnas disponibles y [aquí esta la documentación](TODO)
+* __[Partición de Tablas](https://cloud.google.com/bigquery/docs/partitioned-tables)__: Al crear una tabla en Bigquery es posible establecer un punto de partición para dicha tabla (Pseudo columna), de esta forma se crea una especie de paginación basada en una columna de tipo fecha. Esto quiere decir que tendremos multiples pedasos de la misma tabla agrupada ya sea por la misma fecha o por la misma hora, esto permite optimizar mucho la performance y los costos ya que si incluimos este campo en el WHERE se estará consultando sobre un conjunto acotado de datos y no sobre la totalida. 
+Estas son los Pseudo Columnas disponibles y [aquí esta la documentación](https://cloud.google.com/bigquery/docs/partitioned-tables)
 
     + [PARTITIONDATE](https://cloud.google.com/bigquery/docs/querying-partitioned-tables?hl=es#ingestion?time_partitioned_table_pseudo_columns)
 
     + [PARTITIONTIME](https://cloud.google.com/bigquery/docs/querying-partitioned-tables?hl=es#ingestion?time_partitioned_table_pseudo_columns)
 
-* __[require_partition_filter](TODO)__: Esta configuracion asociada a una tabla obliga a que se indiquen los campos de clusterización en el __WHERE__ de la query. Esto lo puedes hactivar con __require_partition_filter=true__ en la creación de la tabla.
+| Ojo, algunas queries podrian leer todas las particiones según la forma en la que se realice la consulta, investiga [aquí](https://cloud.google.com/bigquery/docs/querying-partitioned-tables#pseudo_column_queries_that_scan_all_partitions)
+
+* __[require_partition_filter](https://cloud.google.com/bigquery/docs/reference/bq-cli-reference)__: Esta configuracion asociada a una tabla obliga a que se indiquen los campos de clusterización en el __WHERE__ de la query. Esto lo puedes hactivar con __require_partition_filter=true__ en la creación de la tabla.
 
 Estoy seguro de que le vas a sacar el jugo a estos consejos y más aun le vas a sacar el máximo provecho a la capa gratuita de Google Cloud.
 
