@@ -20,7 +20,7 @@ Otro aspecto importante a considera en cuanto al tiempo de uso de CPU del cual l
 Junto con lo anterior es importante saber la forma en la que se caclulan los segundos de computo, ya que si tu instancia estaba escalada a 0 y llega un request esta se inicia y comienza a cobrar hasta que s resuelva el request, sin embargo, si durante el procesamiento del primer request se inicia un segundo request el tiempo de procesamiento que se cobrará sera en total desde que se inicio el primer request hasta que termino de procesar el segundo.
 
 
-![billable time](/images/S01/cloud_run/billable-time.svg)
+![billable time](/images/S01/cloud_run/billable-time.png)
 
 ## Uso de otros servicios
 
